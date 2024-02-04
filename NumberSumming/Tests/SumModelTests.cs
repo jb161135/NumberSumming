@@ -39,6 +39,7 @@ namespace NumberSumming.Tests
         [Test]
         [TestCase("1", "'1'")]
         [TestCase("-13", "'-13'")]
+        [TestCase("500", "500")]
         [TestCase("0", "-")]
         [TestCase("0", "")]
         public void FormattingNumbersKeepsNumericValues(string expectedNumber, params string[] inputs)
