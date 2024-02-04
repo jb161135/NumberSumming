@@ -8,6 +8,5 @@ namespace NumberSumming.Views
         event EventHandler SumValues;
         OpenFileDialog OpenFileDialog { get; set; }
         string Sum { get; set; }
-        void Show();
     }
 }

@@ -10,12 +10,14 @@ namespace NumberSumming.Views
     {
         private string sum = string.Empty;
         private OpenFileDialog openFileDialog;
+        public event EventHandler SumValues;
 
         OpenFileDialog ISumView.OpenFileDialog
         {
             get => openFileDialog;
             set => openFileDialog = value;
         }
+
         string ISumView.Sum 
         { 
             get => sum; 
@@ -26,15 +28,12 @@ namespace NumberSumming.Views
             }
         }
 
-        public event EventHandler SumValues;
-
         public SumForm()
         {
             InitializeComponent();
             openFileDialog = new OpenFileDialog();
             btnSum.Click += delegate { SumValues?.Invoke(this, EventArgs.Empty); };
-            this.BackColor = Color.FromArgb(199, 217, 195);
-
+            BackColor = Color.FromArgb(199, 217, 195);
             new SumPresenter(this, new SumModel());
         }
     }

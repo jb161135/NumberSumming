@@ -41,7 +41,7 @@ namespace NumberSumming.Tests
         [TestCase("-13", "'-13'")]
         [TestCase("0", "-")]
         [TestCase("0", "")]
-        public void FormattingNumbersKeepsNumber(string expectedNumber, params string[] inputs)
+        public void FormattingNumbersKeepsNumericValues(string expectedNumber, params string[] inputs)
         {
             long result;
             foreach(string num in inputs)
@@ -67,7 +67,7 @@ namespace NumberSumming.Tests
         [TestCase("Nonnumeric value found, replaced with zero.", "i")]
         [TestCase("Nonnumeric value found, replaced with zero.", "-")]
         [TestCase("Nonnumeric value found, replaced with zero.", "")]
-        public void FormattingNumbersCatchesNonNumericValuesGracefully(string expectedErrorMessage, params string[] inputs)
+        public void FormattingNumbersCatchesNonnumericValuesGracefully(string expectedErrorMessage, params string[] inputs)
         {
             foreach (string num in inputs)
             {
@@ -84,7 +84,7 @@ namespace NumberSumming.Tests
         [TestCase("", "'jkgyu!.,%#fjfvg'")]
         [TestCase("-", "'-")]
         [TestCase("", "")]
-        public void MakeNumericRemovesNonNumericCharacters(string expected, params string[] inputs)
+        public void MakeNumericRemovesNonnumericCharacters(string expected, params string[] inputs)
         {
             foreach (string num in inputs)
             {

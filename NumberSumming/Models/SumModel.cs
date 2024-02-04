@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Numerics;
-
 namespace NumberSumming.Models
 {
     /// <summary>
@@ -11,9 +9,10 @@ namespace NumberSumming.Models
     /// </summary>
     public class SumModel : ISumModel
     {
-        const int MAX_DIGITS = 10;
+        private const int MAX_DIGITS = 10;
         private string number = string.Empty;
         private long formattedNumber;
+
         public long Sum { get; private set; }
         public long FormattedSum { get; private set; }
         public string ErrorMessage { get; private set; } = string.Empty;
@@ -66,7 +65,7 @@ namespace NumberSumming.Models
 
                 return formattedNumber;
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 ErrorMessage = "Nonnumeric value found, replaced with zero.";
             }
@@ -102,9 +101,6 @@ namespace NumberSumming.Models
                 ErrorMessage = string.Empty;
 
                 StreamReader sr = new StreamReader(filePath);
-                number = sr.ReadLine();
-                formattedNumber = FormatNumber(number);
-                CalculateSum(formattedNumber);
 
                 while (!sr.EndOfStream)
                 {
@@ -114,7 +110,7 @@ namespace NumberSumming.Models
                 }
                 sr.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ErrorMessage = "Unable to read from file.";
             }
